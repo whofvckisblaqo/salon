@@ -156,18 +156,61 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="flex flex-col items-center justify-center py-32 px-6 text-center">
-        <h1 className="text-5xl md:text-9xl font-black tracking-tighter uppercase animate-in fade-in slide-in-from-bottom-8 duration-1000">
-          THE GOLDEN <span className="text-amber-500">SCISSORS</span>
-        </h1>
-        <p className="mt-6 text-zinc-400 text-lg md:text-2xl max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300">
-          Premium cuts. Classic vibes. Modern precision.
-        </p>
-        <button className="mt-10 bg-amber-600 hover:bg-amber-500 text-white font-bold py-5 px-12 rounded-full transition-all hover:scale-110 active:scale-95 shadow-xl shadow-amber-600/20" onClick={() => setIsOpen(true)}>
-          Book Your Appointment
-        </button>
+      {/* ===================== HERO SECTION WITH BACKGROUND PHOTO ===================== */}
+      <section className="relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden" style={{ marginTop: '-80px', paddingTop: '80px' }}>
+        
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.pexels.com/photos/3993449/pexels-photo-3993449.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            alt="Barbershop background"
+            className="w-full h-full object-cover object-center"
+          />
+          {/* Dark gradient overlay — bottom fades to zinc-950 so the rest of the page blends in */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-zinc-950"></div>
+          {/* Subtle amber tint overlay for brand cohesion */}
+          <div className="absolute inset-0 bg-amber-950/10"></div>
+        </div>
+
+        {/* Optional: animated grain texture for depth */}
+        <div
+          className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`,
+            backgroundRepeat: 'repeat',
+            backgroundSize: '128px 128px',
+          }}
+        />
+
+        {/* Hero Content */}
+        <div className="relative z-10 flex flex-col items-center py-32">
+          {/* Eyebrow tag */}
+          <div className="mb-6 inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-amber-500/30 bg-amber-500/10 backdrop-blur-sm animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+            <span className="text-amber-400 text-[10px] font-black uppercase tracking-[0.3em]">Now Accepting Bookings</span>
+          </div>
+
+          <h1 className="text-5xl md:text-9xl font-black tracking-tighter uppercase animate-in fade-in slide-in-from-bottom-8 duration-1000 drop-shadow-[0_4px_32px_rgba(0,0,0,0.8)]">
+            THE GOLDEN <span className="text-amber-500">SCISSORS</span>
+          </h1>
+          <p className="mt-6 text-zinc-300 text-lg md:text-2xl max-w-2xl animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-300 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+            Premium cuts. Classic vibes. Modern precision.
+          </p>
+          <button
+            className="mt-10 bg-amber-600 hover:bg-amber-500 text-white font-bold py-5 px-12 rounded-full transition-all hover:scale-110 active:scale-95 shadow-xl shadow-amber-600/30 backdrop-blur-sm"
+            onClick={() => setIsOpen(true)}
+          >
+            Book Your Appointment
+          </button>
+
+          {/* Scroll hint */}
+          <div className="mt-16 flex flex-col items-center gap-2 opacity-50 animate-in fade-in duration-1000 delay-700">
+            <span className="text-[9px] uppercase tracking-[0.3em] text-zinc-400">Scroll</span>
+            <div className="w-px h-8 bg-gradient-to-b from-zinc-400 to-transparent"></div>
+          </div>
+        </div>
       </section>
+      {/* ============================================================================= */}
 
       {/* SERVICES SECTION */}
       <section id="services" className="reveal max-w-6xl mx-auto px-6 py-24 scroll-mt-20">
